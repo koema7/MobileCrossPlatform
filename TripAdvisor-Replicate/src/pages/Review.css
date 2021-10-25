@@ -1,0 +1,53 @@
+ion-header{
+    padding: 2rem 0rem;
+}
+ion-header ion-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+.header-ios{
+    padding-bottom: 1rem;
+}
+.header-md::after{
+    background-image: none;
+}
+.ios .explore-header-button-container{
+    padding-top: 1rem;
+}
+
+/* Review Container */
+.review-container{
+    padding: 0rem 1.0rem 1.0rem 1.0rem;
+}
+.ios .review-container{
+    padding: 1.5rem;
+}
+/* Review Box */
+.review-box{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    margin-top: 1rem;
+    min-height: 25vh;
+    position: relative;
+}
+.review-box-write{
+    background-image: url('../asset/images/illustration-review.jpg');
+}
+.review-box-upload{
+    background-image: url('../asset/images/illustration-photo.jpg');
+}
+.review-button{
+    padding: 1rem;
+    border-radius: 10rem;
+
+    background-color: var(--ion-color-review-button);
+    color: var(--ion-color-review-button-font);
+    font-weight: bold;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,122 @@
+ion-header{
+    padding: 2rem 0rem;
+}
+ion-header ion-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+.header-ios{
+    padding-bottom: 1rem;
+}
+.header-md::after{
+    background-image: none;
+}
+.ios .explore-header-button-container{
+    padding-top: 1rem;
+}
+
+/* Search Header */
+.search-container{
+    padding: 0rem 1.0rem 1.0rem 1.0rem;
+}
+.ios .search-container{
+    padding: 1.5rem;
+}
+.search-form{
+    border: 2px solid var(--ion-color-search-border);
+    background-color: var(--ion-color-search-form);
+    color: #757575;
+
+    padding: 1rem;
+    border-radius: 10rem;
+}
+.search-icons{
+    vertical-align: middle;
+    margin-right: 0.3rem;
+
+    color: var(--ion-color-search-button);
+}
+/* Search Nearby Box */
+.search-box-nearby{
+    margin-top: 2rem;
+    background-color: #004F32;
+
+    padding: 2rem;
+}
+.search-box-nearby-content{
+    margin: auto;
+    text-align: center;
+    
+    color: #ffffff;
+}
+.search-box-nearby-content h1{
+    margin: 0;
+    font-weight: bold;
+}
+.search-box-location-settings{
+    border: 1px solid #E0E0E0;
+    padding: 1rem;
+    margin-top: 2rem;    
+
+    border-radius: 10rem;
+}
+/* Search Content */
+.search-content-title{
+    font-weight: bold;
+}
+
+
+.search-content-images-container{
+    margin-top: 2rem;
+}
+.search-content-title-margin{
+    margin-top: 4rem;
+}
+.search-location-images{
+    width: 47%;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+}
+.search-location-images:before {
+	content: "";
+	float: left;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+.search-location-images-bottom{
+    margin-top: 1rem;
+}
+.search-location-images-not-left{
+    margin-left: 6%;
+}
+.search-location-images-title{
+    bottom: 0;
+    left: 0%;
+    padding-left: 0.5rem;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(
+        0deg,rgba(0,0,0,0.6) 0,rgba(0,0,0,0.6) calc(100% - 32px),rgba(0,0,0,0)
+    );
+
+}
+.search-location-images-title h4{
+    font-weight: bold;
+    color: #ffffff;
+}
+.search-location-images-new-york-city{
+    background-image: url('../asset/images/location-assets-nyc.jpeg');
+    background-position: center;
+}
+.search-location-images-singapore{
+    background-image: url('../asset/images/location-assets-singapore.jpeg');
+    background-position: center;
+}
+.search-location-images-rome{
+    background-image: url('../asset/images/location-assets-rome.jpeg');
+    background-position: center;
+}
+.search-location-images-paris{
+    background-image: url('../asset/images/location-assets-paris.jpeg');
+    background-position: center;
+}

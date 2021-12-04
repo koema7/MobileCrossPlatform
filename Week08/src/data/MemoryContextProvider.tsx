@@ -28,12 +28,12 @@ const MemoriesContextProvider: React.FC = props => {
                 type: memory.type
             }
         });
-        localStorage.set({key:'memories',value: JSON.stringify(storableMemories)});
+        localStorage.setItem('memories',JSON.stringify(storableMemories));
     }, [memories]);
 
     const initContext = useCallback(async () => {
-        const memoriesData = await localStorage.get({key: 'memories'});
-        const storedMemories = memoriesData.value ? JSON.parse(memoriesData.value) : [];
+        const memoriesData = await localStorage.getItem('memories');
+        const storedMemories = memoriesData ? JSON.parse(memoriesData) : [];
         const loadedMemories: Memory[] = [];
         for (const storedMemory of storedMemories){
             const file = await Filesystem.readFile({

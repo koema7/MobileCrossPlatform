@@ -76,6 +76,11 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
+.ios{
+  --ion-fab-button-display: none;
+  --ion-header-button-display: block;
+}
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors

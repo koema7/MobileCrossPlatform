@@ -12,7 +12,7 @@ const BadMemories: React.FC = () => {
     const badMemories = memoriesCtx.memories.filter(memory => memory.type == 'bad');
     return (
         <IonPage>
-            <IonFab vertical="bottom" horizontal="end" slot="fixed">
+            <IonFab vertical="bottom" class="fabButton" horizontal="end" slot="fixed">
                 <IonFabButton routerLink={'/newMemory'}>
                     <IonIcon icon={add} />
                 </IonFabButton>
@@ -22,7 +22,7 @@ const BadMemories: React.FC = () => {
                     <IonTitle>
                         Bad Memories
                     </IonTitle>
-                    <IonButton slot="end" routerLink={'/newMemory'}>
+                    <IonButton slot="end" class="headerButton" routerLink={'/newMemory'}>
                         <IonIcon icon={add} />
                     </IonButton>
                 </IonToolbar>

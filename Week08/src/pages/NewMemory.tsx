@@ -2,7 +2,7 @@ import { Directory, Filesystem } from "@capacitor/filesystem"
 import { base64FromPath } from "@ionic/react-hooks/filesystem"
 import { useRef, useState, useContext } from 'react';
 
-import { IonRow, IonBackButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCol, IonButton, IonButtons, IonIcon, IonLabel, IonInput, IonSelect, IonSelectOption} from '@ionic/react';
+import { IonRow, IonBackButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCol, IonButton, IonButtons, IonIcon, IonLabel, IonInput, IonSelect, IonSelectOption, IonGrid, IonContent} from '@ionic/react';
 import { camera } from 'ionicons/icons';
 
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -71,36 +71,40 @@ const NewMemory: React.FC = () => {
                     </IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonRow>
-                <IonInput placeholder="Memory Title" type="text" ref={titleRef}></IonInput>
-            </IonRow>
-            <IonRow>
-                <IonCol>
-                    <IonLabel>Memory Type</IonLabel>
-                    <IonSelect onIonChange={selectMemoryTypeHandler} placeholder="Memory Type">
-                        <IonSelectOption value="good">Good Memory</IonSelectOption>
-                        <IonSelectOption value="bad">Bad Memory</IonSelectOption>
-                    </IonSelect>
-                </IonCol>
-            </IonRow>
-            <IonRow className="ion-text-center">
-                <IonCol>
-                    <div className="image-preview">
-                        {!takenPhoto && <h3>No photo chosen.</h3>}
-                        {takenPhoto && <img src={takenPhoto.preview} alt="Preview"/>}
-                    </div>
-                    <IonButton fill="clear" onClick={takePhotoHandler}>
-                        <IonIcon slot="start" icon={camera}/>
-                        <IonLabel>Take Photo</IonLabel>
-                    </IonButton>
-                </IonCol>
-                
-            </IonRow>
-            <IonRow className="ion-text-center">
-                <IonCol className="ion-text-center">
-                    <IonButton onClick={addMemoryHandler}>Add Memory</IonButton>
-                </IonCol>
-            </IonRow>
+            <IonContent>
+                <IonGrid>
+                    <IonRow>
+                        <IonInput placeholder="Memory Title" type="text" ref={titleRef}></IonInput>
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <IonLabel>Memory Type</IonLabel>
+                            <IonSelect onIonChange={selectMemoryTypeHandler} placeholder="Memory Type">
+                                <IonSelectOption value="good">Good Memory</IonSelectOption>
+                                <IonSelectOption value="bad">Bad Memory</IonSelectOption>
+                            </IonSelect>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-text-center">
+                        <IonCol>
+                            <div className="image-preview">
+                                {!takenPhoto && <h3>No photo chosen.</h3>}
+                                {takenPhoto && <img src={takenPhoto.preview} alt="Preview"/>}
+                            </div>
+                            <IonButton fill="clear" onClick={takePhotoHandler}>
+                                <IonIcon slot="start" icon={camera}/>
+                                <IonLabel>Take Photo</IonLabel>
+                            </IonButton>
+                        </IonCol>
+                        
+                    </IonRow>
+                    <IonRow className="ion-text-center">
+                        <IonCol className="ion-text-center">
+                            <IonButton onClick={addMemoryHandler}>Add Memory</IonButton>
+                        </IonCol>
+                    </IonRow>
+                </IonGrid>
+            </IonContent>
         </IonPage>
     )
 }

@@ -12,7 +12,7 @@ const GoodMemories: React.FC = () => {
 
     return (
         <IonPage>
-            <IonFab vertical="bottom" horizontal="end" slot="fixed" className="fabButton">
+            <IonFab vertical="bottom" class="fabButton" horizontal="end" slot="fixed" >
                 <IonFabButton routerLink={'/newMemory'}>
                     <IonIcon icon={add} />
                 </IonFabButton>
@@ -22,7 +22,7 @@ const GoodMemories: React.FC = () => {
                     <IonTitle>
                         Good Memories
                     </IonTitle>
-                    <IonButton slot="end" routerLink={'/newMemory'} className="headerButton">
+                    <IonButton slot="end" class="headerButton" routerLink={'/newMemory'} >
                         <IonIcon icon={add} />
                     </IonButton>
                 </IonToolbar>

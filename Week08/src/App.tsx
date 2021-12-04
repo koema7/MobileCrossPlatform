@@ -27,11 +27,19 @@ import GoodMemories from './pages/GoodMemories';
 import { happyOutline, sadOutline, add } from 'ionicons/icons';
 import NewMemory from './pages/NewMemory';
 import MemoriesContextProvider from './data/MemoryContextProvider';
+import { useContext, useEffect } from 'react';
+import MemoriesContext from './data/memorycontext';
 
-const App: React.FC = () => (
-  <IonApp>
+const App: React.FC = () => {
+  const memoriesCtx = useContext(MemoriesContext);
+  const {initContext} = memoriesCtx;
+  useEffect(() => {
+    initContext();
+  }, [initContext]);
+  return (
+    <IonApp>
     <IonReactRouter>
-      <MemoriesContextProvider>
+      {/* <MemoriesContextProvider> */}
       <IonTabs>
             <IonRouterOutlet>
               <Route exact path="/goodMemories" component={GoodMemories}/>
@@ -50,9 +58,10 @@ const App: React.FC = () => (
                 </IonTabButton>
             </IonTabBar>
       </IonTabs>
-      </MemoriesContextProvider>
+      {/* </MemoriesContextProvider> */}
     </IonReactRouter>
   </IonApp>
-);
+  )
+};
 
 export default App;

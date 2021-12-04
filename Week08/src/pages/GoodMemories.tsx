@@ -1,11 +1,10 @@
 import { IonFab, IonFabButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonButton, IonButtons, IonIcon, IonLabel, IonContent, IonGrid, IonRow, IonCol, IonCardTitle, IonCardHeader } from '@ionic/react';
 import { add } from 'ionicons/icons';
 
-import './style.css'
+import './style.css';
 
-import MemoriesContext, {Memory} from "../data/memorycontext";
-import { useHistory } from "react-router";
-import { useRef, useState, useContext } from 'react';
+import MemoriesContext from "../data/memorycontext";
+import { useContext } from 'react';
 
 const GoodMemories: React.FC = () => {
     const memoriesCtx = useContext(MemoriesContext);
@@ -40,7 +39,7 @@ const GoodMemories: React.FC = () => {
                     {goodMemories.map(memory => (
                         <IonRow key={memory.id}>
                             <IonCard>
-                                <img src={memory.imagePath} alt={memory.title} />
+                                <img src={memory.base64Url} alt={memory.title} />
                                 <IonCardHeader>
                                     <IonCardTitle>{memory.title}</IonCardTitle>
                                 </IonCardHeader>

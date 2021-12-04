@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
+import MemoriesContextProvider from './data/MemoryContextProvider';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MemoriesContextProvider>
+      <App />
+    </MemoriesContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

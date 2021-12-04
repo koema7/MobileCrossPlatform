@@ -56,7 +56,7 @@ const NewMemory: React.FC = () => {
             directory: Directory.Data
         });
 
-        memoriesCtx.addMemory(fileName, enteredTitle.toString(), chosenMemoryType);
+        memoriesCtx.addMemory(fileName, base64,enteredTitle.toString(), chosenMemoryType);
         history.length > 0 ? history.goBack() : history.replace('/goodMemories');
     };
     return (
@@ -94,8 +94,6 @@ const NewMemory: React.FC = () => {
                         <IonLabel>Take Photo</IonLabel>
                     </IonButton>
                 </IonCol>
-            </IonRow>
-            <IonRow className="ion-margin-top">
                 <IonCol className="ion-text-center">
                     <IonButton onClick={addMemoryHandler}>Add Memory</IonButton>
                 </IonCol>

@@ -94,6 +94,9 @@ const NewMemory: React.FC = () => {
                         <IonLabel>Take Photo</IonLabel>
                     </IonButton>
                 </IonCol>
+                
+            </IonRow>
+            <IonRow className="ion-text-center">
                 <IonCol className="ion-text-center">
                     <IonButton onClick={addMemoryHandler}>Add Memory</IonButton>
                 </IonCol>

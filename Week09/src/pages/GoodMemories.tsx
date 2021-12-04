@@ -38,7 +38,7 @@ const GoodMemories: React.FC = () => {
                         </IonRow>
                     )}
                     {goodMemories.map(memory => (
-                        <MemoryItem key={memory.id} id={memory.id} base64Url={memory.base64Url} title={memory.title}/>
+                        <MemoryItem key={memory.id} id={memory.id} base64Url={memory.base64Url} title={memory.title} lat={memory.lat} long={memory.long}/>
                     ))}
                 </IonGrid>
             </IonContent>

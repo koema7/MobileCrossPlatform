@@ -1,6 +1,7 @@
 import { Directory, Filesystem } from "@capacitor/filesystem"
 import { base64FromPath } from "@ionic/react-hooks/filesystem"
 import { useRef, useState, useContext } from 'react';
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 import { IonRow, IonBackButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCol, IonButton, IonButtons, IonIcon, IonLabel, IonInput, IonSelect, IonSelectOption, IonGrid, IonContent} from '@ionic/react';
 import { camera } from 'ionicons/icons';
@@ -15,6 +16,22 @@ const NewMemory: React.FC = () => {
     const titleRef = useRef<HTMLIonInputElement>(null);
     const memoriesCtx = useContext(MemoriesContext);
     const history = useHistory();
+    const [lat, setLat] = useState<number>(-6);
+    const [long, setLong] = useState<number>(106);
+
+    const containerStyle ={
+        width: '100%',
+        height: '500px'
+    }
+
+    const selectPos = (e: google.maps.MapMouseEvent) => {
+        if(e.latLng?.lat()){ 
+            setLat(e.latLng?.lat()); 
+        }
+        if(e.latLng?.lng()){ 
+            setLong(e.latLng?.lng()); 
+        }
+    };
 
     const selectMemoryTypeHandler = (event: CustomEvent) => {
         const selectedMemoryType = event.detail.value;
@@ -56,7 +73,7 @@ const NewMemory: React.FC = () => {
             directory: Directory.Data
         });
 
-        memoriesCtx.addMemory(fileName, base64,enteredTitle.toString(), chosenMemoryType);
+        memoriesCtx.addMemory(fileName, base64,enteredTitle.toString(), chosenMemoryType, lat, long);
         history.length > 0 ? history.goBack() : history.replace('/goodMemories');
     };
     return (
@@ -95,8 +112,20 @@ const NewMemory: React.FC = () => {
                                 <IonIcon slot="start" icon={camera}/>
                                 <IonLabel>Take Photo</IonLabel>
                             </IonButton>
+                        </IonCol>             
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
+                            <LoadScript googleMapsApiKey="AIzaSyDM_VDLKyk0DEifuqJWgTHow4Ij7PxEOys">
+                                <GoogleMap
+                                    onClick={selectPos}
+                                    mapContainerStyle={containerStyle}
+                                    center={{ lat: lat, lng: long }}
+                                    zoom={10}>
+                                    <Marker position={{ lat: lat, lng: long }} />
+                                </GoogleMap>
+                            </LoadScript>
                         </IonCol>
-                        
                     </IonRow>
                     <IonRow className="ion-text-center">
                         <IonCol className="ion-text-center">

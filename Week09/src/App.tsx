@@ -26,6 +26,7 @@ import GoodMemories from './pages/GoodMemories';
 
 import { happyOutline, sadOutline, add } from 'ionicons/icons';
 import NewMemory from './pages/NewMemory';
+import Home from './pages/Home';
 import MemoriesContextProvider from './data/MemoryContextProvider';
 import { useContext, useEffect } from 'react';
 import MemoriesContext from './data/memorycontext';
@@ -45,6 +46,7 @@ const App: React.FC = () => {
               <Route exact path="/goodMemories" component={GoodMemories}/>
               <Route exact path="/badMemories" component={BadMemories}/>
               <Route exact path="/newMemory" component={NewMemory}/>
+              <Route exact path="/home" component={Home}/>
               <Redirect exact from="/" to="/goodMemories" />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">

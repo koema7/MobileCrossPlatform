@@ -1,6 +1,7 @@
 
 import { IonFab, IonFabButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonButton, IonButtons, IonIcon, IonLabel, IonContent, IonGrid, IonRow, IonCol, IonCardTitle, IonCardHeader } from '@ionic/react';
 import { add } from 'ionicons/icons';
+import MemoryItem from '../components/MemoryComp'
 
 import './style.css';
 
@@ -32,19 +33,12 @@ const BadMemories: React.FC = () => {
                     {badMemories.length === 0 && (
                         <IonRow>
                             <IonCol className="ion-text-center">
-                                <h2>No good memories found</h2>
+                                <h2>No bad memories found</h2>
                             </IonCol>
                         </IonRow>
                     )}
                     {badMemories.map(memory => (
-                        <IonRow key={memory.id}>
-                            <IonCard>
-                                <img src={memory.base64Url} alt={memory.title} />
-                                <IonCardHeader>
-                                    <IonCardTitle>{memory.title}</IonCardTitle>
-                                </IonCardHeader>
-                            </IonCard>
-                        </IonRow>
+                        <MemoryItem key={memory.id} id={memory.id} base64Url={memory.base64Url} title={memory.title}/>
                     ))}
                 </IonGrid>
             </IonContent>

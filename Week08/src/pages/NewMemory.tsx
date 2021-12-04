@@ -21,7 +21,7 @@ const NewMemory: React.FC = () => {
         setChosenMemoryType(selectedMemoryType);
     }
     const [takenPhoto, setTakenPhoto] = useState<{
-        path: string;
+        path: string | undefined;
         preview: string;
     }>();
     const takePhotoHandler = async () => {
@@ -33,7 +33,7 @@ const NewMemory: React.FC = () => {
         });
         console.log(photo);
 
-        if(!photo || !photo.path || !photo.webPath){
+        if(!photo || /*!photo.path ||*/ !photo.webPath){
             return;
         }
 

@@ -1,5 +1,6 @@
 import { IonFab, IonFabButton, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonButton, IonButtons, IonIcon, IonLabel, IonContent, IonGrid, IonRow, IonCol, IonCardTitle, IonCardHeader } from '@ionic/react';
 import { add } from 'ionicons/icons';
+import MemoryItem from '../components/MemoryComp'
 
 import './style.css';
 
@@ -37,14 +38,7 @@ const GoodMemories: React.FC = () => {
                         </IonRow>
                     )}
                     {goodMemories.map(memory => (
-                        <IonRow key={memory.id}>
-                            <IonCard>
-                                <img src={memory.base64Url} alt={memory.title} />
-                                <IonCardHeader>
-                                    <IonCardTitle>{memory.title}</IonCardTitle>
-                                </IonCardHeader>
-                            </IonCard>
-                        </IonRow>
+                        <MemoryItem key={memory.id} id={memory.id} base64Url={memory.base64Url} title={memory.title}/>
                     ))}
                 </IonGrid>
             </IonContent>
